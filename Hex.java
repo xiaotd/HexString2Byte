@@ -1,5 +1,5 @@
 public class Hex {
-    private final static String PARTEN = "0x|0X|[,.| ?!@#$%^&*()+=_-]+|[G-Zg-z]+";
+    private final static String PARTEN = "0x|0X|[,.:;| ?!@#$%^&*()+=_-]+|[G-Zg-z]+";
     private final static String HEX = "0123456789ABCDEF";
     private final static byte[] hex = HEX.getBytes();
     public static String byte2Hex(byte b){
@@ -24,7 +24,7 @@ public class Hex {
         if(index>=0){
             hex = hex.substring(0,index);
         }
-        hex = hex.replaceAll(PARTEN,"");
+        hex = hex.toUpperCase().replaceAll(PARTEN,"");
         if(hex.length()==0) return null;
 
         int len = hex.length() / 2;
@@ -33,7 +33,7 @@ public class Hex {
         for (int i = 0; i < len; i++) {
             int pos = i * 2;
             result[i] = (byte) (HEX.indexOf(achar[pos]) << 4
-                                | HEX.indexOf(achar[pos + 1]));
+                    | HEX.indexOf(achar[pos + 1]));
         }
         return result;
     }
