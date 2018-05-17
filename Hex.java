@@ -1,5 +1,5 @@
 public class Hex {
-    private final static String PARTEN = "0x|0X|[,.:;| ?!@#$%^&*()+=_-]+|[G-Zg-z]+";
+    private final static String PARTEN = "0x|0X|[\\sG-Zg-z,.:;| ?!@#$%^&*/\\()<>+=_-]+";
     private final static String HEX = "0123456789ABCDEF";
     private final static byte[] hex = HEX.getBytes();
     public static String byte2Hex(byte b){
